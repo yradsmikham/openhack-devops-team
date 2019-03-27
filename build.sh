@@ -33,7 +33,7 @@ TAG=$ACR_ID"/devopsoh/"$imageTag
 
 echo "TAG: "$TAG
 
-pushd $relativeSaveLocation/apis/poi/web
+pushd apis/poi/web
 
 docker build . -t $TAG
 
