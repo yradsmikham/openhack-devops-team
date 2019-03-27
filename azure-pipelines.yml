@@ -9,9 +9,28 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
-variables:
-  imageName: 'your-container-image-name:$(build.buildId)'
-
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+- checkout: self
+  persistCredentials: true
+  clean: true
+
+- bash: |
+    curl $BUILD_SCRIPT > build.sh
+    chmod +x ./build.sh
+  displayName: Download build script
+  env:
+    BUILD_SCRIPT: https://raw.githubusercontent.com/Azure-Samples/openhack-devops-proctor/master/provision-team/build_deploy_poi.sh
+
+- task: ShellScript@2
+  displayName: Build and deploy API
+  inputs:
+    scriptPath: build.sh
+  condition: ne(variables['Build.Reason'], 'PullRequest')
+  env:
+    buildFlavor: $(BUILD_FLAVOR)
+    resourceGroupName: $(RESOURCE_GROUP_NAME)
+    imageTag: $(IMAGE_TAG)
+    relativeSaveLocation: $(RELATIVE_SAVE_LOCATION)
+    dnsUrl: $(DNS_URL)
+    teamName: $(TEAM_NAME)
+    registryName: $(REGISTRY_NAME)
