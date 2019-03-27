@@ -33,7 +33,7 @@ TAG=$ACR_ID"/devopsoh/"$imageTag
 
 echo "TAG: "$TAG
 
-pushd $relativeSaveLocation/openhack-devops-team/apis/poi/web
+pushd $relativeSaveLocation/apis/poi/web
 
 docker build . -t $TAG
 
@@ -43,7 +43,7 @@ echo -e "\nSuccessfully pushed image: "$TAG
 
 popd
 
-installPath=$relativeSaveLocation"/openhack-devops-team/apis/poi/charts/mydrive-poi"
+installPath=$relativeSaveLocation"apis/poi/charts/mydrive-poi"
 echo -e "\nhelm install from: " $installPath "\n\n"
 
 BASE_URI='http://'$dnsUrl
