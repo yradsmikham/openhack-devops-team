@@ -19,7 +19,7 @@ steps:
     chmod +x ./build.sh
   displayName: Download build script
   env:
-    BUILD_SCRIPT: https://raw.githubusercontent.com/Azure-Samples/openhack-devops-proctor/master/provision-team/build_deploy_poi.sh
+    BUILD_SCRIPT: https://raw.githubusercontent.com/yradsmikham/openhack-devops-team/master/build.sh
 
 - task: ShellScript@2
   displayName: Build and deploy API
