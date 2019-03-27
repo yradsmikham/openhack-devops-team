@@ -2,6 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+echo "LIST CONTENT: "
+ls -a
+
 az login -u 'hacker6@OTAPRD170ops.onmicrosoft.com' -p 'haAWU@8$HbU0'
 
 # -e: immediately exit if any command has a non-zero exit status
