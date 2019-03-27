@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+az login -u 'hacker6@OTAPRD170ops.onmicrosoft.com' -p 'haAWU@8$HbU0'
+
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
 # IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
