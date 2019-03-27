@@ -1,9 +1,4 @@
 #!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-echo "LIST CONTENT: "
-ls -a
 
 az login -u 'hacker6@OTAPRD170ops.onmicrosoft.com' -p 'haAWU@8$HbU0'
 
@@ -40,10 +35,3 @@ docker build . -t $TAG
 docker push $TAG
 
 echo -e "\nSuccessfully pushed image: "$TAG
-
-installPath="apis/poi/charts/mydrive-poi"
-echo -e "\nhelm install from: " $installPath "\n\n"
-
-BASE_URI='http://'$dnsUrl
-echo "Base URI: $BASE_URI"
-helm install $installPath --name api-poi --set repository.image=$TAG,env.webServerBaseUri=$BASE_URI,ingress.rules.endpoint.host=$dnsUrl
