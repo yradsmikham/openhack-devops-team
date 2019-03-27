@@ -33,7 +33,7 @@ TAG=$ACR_ID"/devopsoh/"$imageTag
 
 echo "TAG: "$TAG
 
-pushd apis/poi/web
+cd apis/poi/web
 
 docker build . -t $TAG
 
@@ -41,9 +41,7 @@ docker push $TAG
 
 echo -e "\nSuccessfully pushed image: "$TAG
 
-popd
-
-installPath=$relativeSaveLocation"apis/poi/charts/mydrive-poi"
+installPath="apis/poi/charts/mydrive-poi"
 echo -e "\nhelm install from: " $installPath "\n\n"
 
 BASE_URI='http://'$dnsUrl
