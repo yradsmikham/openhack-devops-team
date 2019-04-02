@@ -29,8 +29,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   rules:
     endpoint:
-      #fqdn of your exposed application (found in ohteamvalues file)
-      host:
+      host: http://akstraefikopenhackli97.northeurope.cloudapp.azure.com
       paths:
       - path: /api/poi
         serviceName: api-poi-svc
