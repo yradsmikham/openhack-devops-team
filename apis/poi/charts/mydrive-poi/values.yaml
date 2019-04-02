@@ -30,7 +30,7 @@ ingress:
   rules:
     endpoint:
       #fqdn of your exposed application (found in ohteamvalues file)
-      host: akstraefikopenhackli97.northeurope.cloudapp.azure.com
+      host:
       paths:
       - path: /api/poi
         serviceName: api-poi-svc
