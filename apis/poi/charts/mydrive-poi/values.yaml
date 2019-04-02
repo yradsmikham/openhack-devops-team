@@ -29,6 +29,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   rules:
     endpoint:
+      #fqdn of your exposed application (found in ohteamvalues file)
       host:
       paths:
       - path: /api/poi
