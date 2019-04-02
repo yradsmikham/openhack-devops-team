@@ -29,7 +29,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   rules:
     endpoint:
-      host: http://akstraefikopenhackli97.northeurope.cloudapp.azure.com
+      host:
       paths:
       - path: /api/poi
         serviceName: api-poi-svc
